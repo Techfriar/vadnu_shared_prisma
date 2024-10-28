@@ -1,0 +1,12 @@
+// Common categories table
+
+model Category {
+    id          Int           @id @default(autoincrement())
+    name        String        @unique
+    slug        String        @unique
+    jobCategory JobCategory[] @relation(name: "JobCategoryToCategory")
+    jobFilter   JobsFilter[]  @relation("FilterCategory")
+    createdAt   DateTime      @default(now())
+    updatedAt   DateTime      @default(now())
+    deletedAt   DateTime?
+}

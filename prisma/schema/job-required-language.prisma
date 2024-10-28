@@ -1,0 +1,11 @@
+// Required language for the specific job connected to languages common table
+model JobsLanguage {
+    id         Int        @id @default(autoincrement())
+    language   Languages? @relation(name: "LanguagesToJobsLanguages", fields: [languageId], references: [id], onDelete: Cascade)
+    languageId Int?
+    job        Job        @relation(name: "JobToJobsLanguages", fields: [jobId], references: [id])
+    jobId      Int
+    createdAt  DateTime   @default(now())
+    updatedAt  DateTime   @default(now())
+    deletedAt  DateTime?
+}

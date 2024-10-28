@@ -1,0 +1,11 @@
+// Applications filter comparison with pair number and condition
+
+model ApplicationFilterComparison {
+    id                     Int                      @id @default(autoincrement())
+    filterDataPairNumber   Int
+    value                  ComparisonCondition
+    savedApplicationFilter ApplicationSavedFilter[]
+    createdAt              DateTime                 @default(now())
+    updatedAt              DateTime                 @default(now())
+    deletedAt              DateTime?
+}

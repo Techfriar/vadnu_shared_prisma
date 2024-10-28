@@ -1,0 +1,11 @@
+{
+  "name": "vadnu-shared-prisma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "5.21.1",
+    "prisma": "5.21.1"
+  },
+  "type": "module"
+}

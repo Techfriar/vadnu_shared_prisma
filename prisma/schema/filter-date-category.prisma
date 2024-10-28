@@ -1,0 +1,6 @@
+// Date Category
+enum DateCategory {
+    THIS_WEEK
+    THIS_MONTH
+    THIS_YEAR
+}

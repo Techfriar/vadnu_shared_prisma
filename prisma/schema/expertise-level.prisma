@@ -1,0 +1,7 @@
+// experience level for a job
+enum ExpertiseLevel {
+    ENTRY_LEVEL
+    JUNIOR
+    INTERMEDIATE
+    SENIOR
+}

@@ -1,0 +1,11 @@
+// Filter application category enum
+
+enum ApplicationSelectedCategory {
+    INTERVIEW_DATE
+    DATE_APPLIED_ON
+    SCREENING_MODE
+    SCORE
+    LEVEL
+    YEAR_OF_EXPERIENCE
+    STATUS
+}

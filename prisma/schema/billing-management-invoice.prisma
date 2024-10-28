@@ -1,0 +1,13 @@
+//Prisma model for Invoice 
+model Invoice {
+    id             Int            @id @default(autoincrement())
+    invoiceNo      String?        @unique
+    billingFrom    String?
+    billingAddress String?
+    summaryId      Int
+    summary        InvoiceSummary @relation(name: "InvoiceSummary", fields: [summaryId], references: [id])
+
+    CandidateTransactions CandidateTransactions[] @relation(name: "CandidateInvoice")
+
+    CompanyTransactions CompanyTransactions[] @relation(name: "CompanyInvoice")
+}

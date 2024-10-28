@@ -1,0 +1,15 @@
+//Prisma model for Candidate Certifications 
+model CandidateCertifications {
+    id              Int       @id @default(autoincrement())
+    candidateId     Int
+    candidate       Candidate @relation(name: "CandidateToCertifications", fields: [candidateId], references: [id], onDelete: Cascade)
+    name            String?
+    authority       String?
+    certifiedNumber String?
+    startDate       DateTime?
+    endDate         DateTime?
+    certificate     String?
+    createdAt       DateTime  @default(now())
+    updatedAt       DateTime?  @updatedAt
+    deletedAt       DateTime?
+}

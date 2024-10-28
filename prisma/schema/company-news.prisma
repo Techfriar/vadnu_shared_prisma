@@ -1,0 +1,10 @@
+//Prisma model for company news
+model CompanyNews {
+    id        Int       @id @default(autoincrement())
+    link      String
+    companyId Int
+    company   Company   @relation(fields: [companyId], references: [id])
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
+}

@@ -1,0 +1,21 @@
+//prisma model for message
+model Message {
+  id          Int                 @id @default(autoincrement())
+  chatroomId  Int
+  senderId    Int
+  receiverId  Int
+  content     String
+  type        String
+  status      String
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+  deletedAt   DateTime?
+  chatroom    Chatroom            @relation("ChatRoomMessages", fields: [chatroomId], references: [id])
+  sender      User                @relation("SentMessages", fields: [senderId], references: [id])
+  attachments messageAttachment[]
+  replyToId   Int?
+  replyTo     Message?            @relation("ReplyTo", fields: [replyToId], references: [id])
+  replies     Message[]           @relation("ReplyTo")
+
+  lastChatroom Chatroom? @relation("LastMessage")
+}

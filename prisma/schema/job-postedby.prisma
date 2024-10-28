@@ -1,0 +1,5 @@
+// Job posted by admin,company
+enum JobPostedBy {
+    ADMIN
+    COMPANY
+}

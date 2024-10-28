@@ -1,0 +1,9 @@
+/// The `CompanyCategory` model represents different categories for companies.
+model CompanyCategory {
+  id        Int       @id @default(autoincrement())
+  name      String
+  companies Company[]
+  slug      String    @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}

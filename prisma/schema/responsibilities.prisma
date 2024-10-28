@@ -1,0 +1,10 @@
+// Responsibilities common table connected to jobs responsibilities
+model Responsibilities {
+    id                 Int                  @id @default(autoincrement())
+    name               String
+    jobsResponsibility JobResponsibilites[] @relation(name: "JobsResponsibilitiesToResponsibilities")
+    slug               String               @unique
+    createdAt          DateTime             @default(now())
+    updatedAt          DateTime             @default(now())
+    deletedAt          DateTime?
+}

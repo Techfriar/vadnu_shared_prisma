@@ -1,0 +1,11 @@
+//Prisma model for Candidate JobRoles
+model CandidateJobRoles {
+  id          Int        @id @default(autoincrement())
+  jobRole     JobRoles   @relation(name: "JobRolesToCandidateJobRoles", fields: [jobRoleId], references: [id], onDelete: Cascade)
+  jobRoleId   Int        @unique
+  candidate   Candidate? @relation(name: "CandidateToCandidateJobRoles", fields: [candidateId], references: [id], onDelete: Cascade)
+  candidateId Int?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime?  @updatedAt
+  deletedAt   DateTime?
+}

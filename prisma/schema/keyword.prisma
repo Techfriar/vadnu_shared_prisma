@@ -1,0 +1,10 @@
+// Keywords common table
+model Keyword {
+    id          Int           @id @default(autoincrement())
+    name        String
+    slug        String        @unique
+    jobKeywords JobKeywords[] @relation(name: "KeywordToKeyword")
+    createdAt   DateTime      @default(now())
+    updatedAt   DateTime      @default(now())
+    deletedAt   DateTime?
+}

@@ -1,0 +1,7 @@
+// Notification enum to take notification type
+enum NotificationType {
+    REPORT
+    JOB_POSTING
+    PAYMENT
+    REQUEST
+}

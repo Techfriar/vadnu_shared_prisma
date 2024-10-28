@@ -1,0 +1,11 @@
+// Location common table
+model Location {
+    id          Int           @id @default(autoincrement())
+    name        String
+    jobLocation JobLocation[] @relation(name: "LocationTosLocation")
+    BoostedJob  BoostedJob[]
+    slug        String        @unique
+    createdAt   DateTime?     @default(now())
+    updatedAt   DateTime?     @default(now())
+    deletedAt   DateTime?
+}

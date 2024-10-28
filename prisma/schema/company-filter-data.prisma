@@ -1,0 +1,25 @@
+// Company filter data
+model CompanyFilterData {
+    id                   Int                @id @default(autoincrement())
+    companySavedFilter   CompanySavedFilter @relation(fields: [companySavedFilterId], references: [id])
+    companySavedFilterId Int
+    categoryId           Int
+    condition            Condition
+    companyStatus        CompanyStatus
+    createdAt            DateTime           @default(now())
+    updatedAt            DateTime?          @updatedAt
+    deletedAt            DateTime?
+}
+
+// Filter data condition
+enum Condition {
+    IS
+    NOT
+}
+
+// company status
+enum CompanyStatus {
+    ACTIVE
+    INACTIVE
+    CLOSED
+}

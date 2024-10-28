@@ -1,0 +1,18 @@
+model Verification {
+    id            Int                 @id @default(autoincrement())
+    candidate     Candidate?          @relation(name: "CandidateToVerification", fields: [candidateId], references: [id])
+    candidateId   Int?                @unique
+    company       Company?            @relation(name: "CompanyToVerification", fields: [companyId], references: [id])
+    companyId     Int?                @unique
+    status        VerificationStatus? @default(PENDING)
+    dateRequested DateTime?           @default(now())
+    createdAt     DateTime            @default(now())
+    updatedAt     DateTime?           @updatedAt
+    deletedAt     DateTime?
+}
+
+enum VerificationStatus {
+    PENDING
+    VERIFIED
+    REJECTED
+}

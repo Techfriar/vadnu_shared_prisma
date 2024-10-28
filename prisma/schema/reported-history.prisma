@@ -1,0 +1,13 @@
+model ReportedHistory {
+  id                      Int                    @id @default(autoincrement())
+  action                  String
+  reportedBy              String
+  reason                  String
+  dateOfReported          DateTime
+
+  companyHistoryId        Int?
+  candidateHistoryId      Int?
+
+  companyHistory          ReportedCompanyAccounts?  @relation("CompanyHistory", fields: [companyHistoryId], references: [id])
+  candidateHistory        ReportedCandidateAccounts? @relation("CandidateHistory", fields: [candidateHistoryId], references: [id])
+}

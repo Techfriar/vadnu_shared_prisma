@@ -1,0 +1,11 @@
+//prisma model for company value
+model CompanyValue {
+    id          Int       @id @default(autoincrement())
+    title       String
+    description String?
+    companyId   Int
+    company     Company   @relation(fields: [companyId], references: [id])
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @default(now())
+    deletedAt   DateTime?
+}

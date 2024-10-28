@@ -1,0 +1,11 @@
+//prisma schema for user chatrooms
+model UserChatRooms {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  chatroomId Int
+  joinedAt   DateTime @default(now())
+  user       User     @relation("UserChatRooms", fields: [userId], references: [id])
+  chatroom   Chatroom @relation("UserChatRooms", fields: [chatroomId], references: [id])
+
+  @@unique([userId, chatroomId])
+}

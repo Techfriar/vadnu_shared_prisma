@@ -1,0 +1,10 @@
+// Screening question common table
+model ScreeningQuestion {
+    id                    Int                     @id @default(autoincrement())
+    name                  String
+    jobScreeningQuestions JobScreeningQuestions[] @relation(name: "JobScreeningQuestionToScreeningQuestion")
+    slug                  String                  @unique
+    createdAt             DateTime                @default(now())
+    updatedAt             DateTime                @default(now())
+    deletedAt             DateTime?
+}

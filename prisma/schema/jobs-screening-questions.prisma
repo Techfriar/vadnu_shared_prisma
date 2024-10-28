@@ -1,0 +1,12 @@
+// Job screening question table
+model JobScreeningQuestions {
+    id                  Int                @id @default(autoincrement())
+    screeningQuestion   ScreeningQuestion? @relation(name: "JobScreeningQuestionToScreeningQuestion", fields: [screeningQuestionId], references: [id])
+    screeningQuestionId Int?
+    job                 Job?               @relation(name: "JobsToJobsScreeningQuestion", fields: [jobId], references: [id])
+    jobId               Int?
+
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

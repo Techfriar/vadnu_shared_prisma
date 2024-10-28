@@ -1,0 +1,14 @@
+// Candidate filter Data
+model CandidateFilterData {
+    id                     Int                  @id @default(autoincrement())
+    dateCategory           DateCategory?
+    fromDate               String?
+    toDate                 String?
+    condition              FilterCondition
+    status                 String?
+    CandidateSavedFilter   CandidateSavedFilter @relation(fields: [candidateSavedFilterId], references: [id])
+    candidateSavedFilterId Int
+    createdAt              DateTime             @default(now())
+    updatedAt              DateTime?            @updatedAt
+    deletedAt              DateTime?
+}

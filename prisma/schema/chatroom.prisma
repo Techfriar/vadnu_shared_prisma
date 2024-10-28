@@ -1,0 +1,14 @@
+//prisma schema for chatroom
+model Chatroom {
+  id            Int             @id @default(autoincrement())
+  lastMessageId Int?            @unique
+  isGroup       Boolean?        @default(false)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  deletedAt     DateTime?
+  userChatRooms UserChatRooms[] @relation("UserChatRooms")
+  messages      Message[]       @relation("ChatRoomMessages")
+
+  // Define the relation to Message for the last message
+  lastMessage Message? @relation("LastMessage", fields: [lastMessageId], references: [id])
+}

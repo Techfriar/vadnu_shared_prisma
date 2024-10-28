@@ -1,0 +1,12 @@
+// Saved application filter table 
+model ApplicationSavedFilter {
+    id                Int                           @id @default(autoincrement())
+    name              String
+    user              User                          @relation(fields: [userId], references: [id])
+    userId            Int
+    applicationFilter ApplicationFilterData[]
+    comparison        ApplicationFilterComparison[]
+    createdAt         DateTime                      @default(now())
+    updatedAt         DateTime                      @default(now())
+    deletedAt         DateTime?
+}

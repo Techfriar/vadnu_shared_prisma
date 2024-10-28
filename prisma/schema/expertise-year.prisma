@@ -1,0 +1,8 @@
+// Year of experience
+enum ExpertiseYear {
+    LESS_THAN_ONE
+    ONE_TO_TWO
+    THREE_TO_FIVE
+    SIX_TO_TEN
+    ELEVEN_PLUS
+}

@@ -1,0 +1,11 @@
+//Prisma model for Candidate Resumes
+model CandidateResumes {
+    id          Int       @id @default(autoincrement())
+    candidateId Int
+    candidate   Candidate @relation(name: "CandidateToResumes", fields: [candidateId], references: [id], onDelete: Cascade)
+    resume      String?
+    isDefault   Boolean?
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime?  @updatedAt
+    deletedAt   DateTime?
+}

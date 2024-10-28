@@ -1,0 +1,8 @@
+// search appeared common table
+model JobSearchAppearence {
+    id    Int @id @default(autoincrement())
+    Job   Job @relation(fields: [jobId], references: [id])
+    jobId Int
+
+    appearedAt DateTime @default(now())
+}

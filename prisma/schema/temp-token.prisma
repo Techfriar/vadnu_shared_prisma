@@ -1,0 +1,10 @@
+model TempToken {
+    id        Int       @id @default(autoincrement())
+    token     String
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
+    // One-to-one relation with User
+    userId    Int       @unique // Ensure only one TempToken per user
+    user      User      @relation(fields: [userId], references: [id])
+}

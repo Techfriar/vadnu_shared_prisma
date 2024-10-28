@@ -1,0 +1,11 @@
+// Job skills common table connected to skills common table 
+model JobSkills {
+    id        Int       @id @default(autoincrement())
+    skill     Skills?   @relation(name: "SkillsToJobSkills", fields: [skillId], references: [id], onDelete: Cascade)
+    skillId   Int?
+    job       Job?      @relation(name: "JobsToJobsSkill", fields: [jobId], references: [id], onDelete: Cascade)
+    jobId     Int?
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

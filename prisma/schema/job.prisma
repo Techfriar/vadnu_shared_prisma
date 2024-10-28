@@ -1,0 +1,49 @@
+// Prisma model for Job
+
+model Job {
+    id                      Int                     @id @default(autoincrement())
+    title                   String
+    jobType                 JobType?
+    jobMode                 JobMode?
+    expertiseType           JobExpertiseType?
+    expertiseLevel          ExpertiseLevel?
+    yearsOfExperience       ExpertiseYear?
+    qualification           JobQualification?
+    jobDescription          String?
+    jobResponsibilities     JobResponsibilites[]    @relation(name: "JobsToJobsResponsibilities")
+    jobRequirements         JobRequirements[]       @relation(name: "JobsToJobsRequirements")
+    salaryType              JobExpectedSalary?
+    expectedSalary          Int?
+    minimumSalary           Int?
+    maximumSalary           Int?
+    email                   String?
+    isUrgentHiring          Boolean?
+    hiringMultipleCandidate Int?                    @default(1)
+    isExpiryDate            Boolean?                @default(true)
+    expiryDate              DateTime?
+    methodOfApplication     MethodOfApplication?
+    assesmentLink           String?
+    jobsScreeningQuestion   JobScreeningQuestions[] @relation(name: "JobsToJobsScreeningQuestion")
+    company                 Company?                @relation(fields: [companyId], references: [id])
+    companyId               Int?
+    jobLocation             JobLocation[]           @relation(name: "JobsToJobsLocation")
+    languagesRequired       JobsLanguage[]          @relation(name: "JobToJobsLanguages")
+    category                JobCategory[]           @relation(name: "JobsToJobsCategory")
+    skills                  JobSkills[]             @relation(name: "JobsToJobsSkill")
+    keywords                JobKeywords[]           @relation(name: "KeywordsToJobKeywords")
+    status                  JobStatus?              @default(ACTIVE)
+    currentPage             Int?                    @default(0)
+    isPublished             Boolean                 @default(false)
+    isBoosted               Boolean                 @default(false)
+    starRating              Float?
+    postedBy                JobPostedBy?
+    jobApplications         JobApplications[]
+    boostedJob              BoostedJob[]            @relation(name: "JobsToBoostedJobs")
+    jobFilter               JobsFilter[]            @relation("JobFilter")
+    jobsTotalView           JobTotalView[]          @relation(name: "JobsToJobsTotalView")
+    jobSearchAppearence     JobSearchAppearence[]
+
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

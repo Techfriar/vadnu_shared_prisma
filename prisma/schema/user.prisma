@@ -1,0 +1,26 @@
+model User {
+  id                     Int                      @id @default(autoincrement())
+  fullName               String
+  email                  String                   @unique
+  password               String?
+  phoneNumber            String?
+  dateOfBirth            String?
+  roleIds                String[]                 @default([])
+  specialPermissionIds   String[]                 @default([])
+  status                 Boolean?
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  deletedAt              DateTime?
+  loginDetails           LoginDetail[]            @relation("UserLoginDetails")
+  settings               Setting[]                @relation("UserSettings")
+  savedJobFilter         JobSavedFilter[]
+  savedCompanyFilter     CompanySavedFilter[]
+  tempToken              TempToken[]
+  resetPasswordDetails   ResetPasswordDetail[]    @relation("UserResetPasswordDetails")
+  chatrooms              UserChatRooms[]          @relation("UserChatRooms")
+  sentMessages           Message[]                @relation("SentMessages")
+  messageAttachment      messageAttachment[]
+  notificationSettings   NotificationSettings[]
+  CandidateSavedFilter   CandidateSavedFilter[]
+  ApplicationSavedFilter ApplicationSavedFilter[]
+}

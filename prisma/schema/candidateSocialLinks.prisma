@@ -1,0 +1,15 @@
+//Prisma model for Candidate SocialLinks
+model CandidateSocialLinks {
+    id          Int       @id @default(autoincrement())
+    candidateId Int       @unique
+    candidate   Candidate @relation(name: "CandidateToSocialLinks", fields: [candidateId], references: [id], onDelete: Cascade)
+    website     String?
+    portfolio   String?
+    linkedIn    String?
+    twitter     String?
+    facebook    String?
+    instagram   String?
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime?  @updatedAt
+    deletedAt   DateTime?
+}

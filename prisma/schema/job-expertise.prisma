@@ -1,0 +1,5 @@
+// Experience type ins level or year
+enum JobExpertiseType {
+    LEVEL
+    YEAR
+}

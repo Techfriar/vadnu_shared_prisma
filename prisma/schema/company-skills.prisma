@@ -1,0 +1,11 @@
+//Prisma model for Candidate Skills
+model CompanySkills {
+    id        Int       @id @default(autoincrement())
+    skillId   Int
+    skill     Skills    @relation(name: "CompanySkills", fields: [skillId], references: [id], onDelete: Cascade)
+    companyId Int?
+    company   Company?  @relation(name: "CompanySkills", fields: [companyId], references: [id], onDelete: Cascade)
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

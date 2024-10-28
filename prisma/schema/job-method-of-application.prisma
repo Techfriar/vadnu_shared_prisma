@@ -1,0 +1,5 @@
+// Job resume assessment method
+enum MethodOfApplication {
+    RESUME
+    ASSESSMENT
+}

@@ -1,0 +1,11 @@
+// Requirement common table
+model Requirements {
+    id              Int               @id @default(autoincrement())
+    name            String
+    jobRequirements JobRequirements[] @relation(name: "JobRequirementsToRequirements")
+    slug            String            @unique
+
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

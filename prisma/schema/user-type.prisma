@@ -1,0 +1,6 @@
+// user type enum for CreatedBy and CreatedTo.
+enum UserTypes {
+    ADMIN
+    COMPANY
+    CANDIDATE
+}

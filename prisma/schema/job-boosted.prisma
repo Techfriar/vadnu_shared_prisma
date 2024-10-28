@@ -1,0 +1,15 @@
+// Boosted jobs table
+model BoostedJob {
+    id                 Int       @id @default(autoincrement())
+    job                Job       @relation(name: "JobsToBoostedJobs", fields: [jobId], references: [id])
+    jobId              Int
+    BoostPlan          BoostPlan @relation(name: "BoostedPlanToBoostedJob", fields: [boostPlanId], references: [id])
+    boostPlanId        Int
+    selectedLocation   Location  @relation(fields: [selectedLocationId], references: [id])
+    selectedLocationId Int
+
+    createdAt DateTime  @default(now())
+    validUpto DateTime
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
+}

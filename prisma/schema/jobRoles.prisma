@@ -1,0 +1,10 @@
+//Prisma model for JobRoles
+model JobRoles {
+  id               Int                 @id @default(autoincrement())
+  name             String
+  slug             String?             @unique
+  candidateJobRole CandidateJobRoles[] @relation(name: "JobRolesToCandidateJobRoles")
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime?           @updatedAt
+  deletedAt        DateTime?
+}

@@ -1,0 +1,11 @@
+// Company Filter comparison data table
+model CompanyFilterDataComparison {
+    id                   Int                 @id @default(autoincrement())
+    filterDataPairNumber Int
+    value                ComparisonCondition
+    companySavedFilter   CompanySavedFilter  @relation(fields: [companySavedFilterId], references: [id])
+    companySavedFilterId Int
+    createdAt            DateTime            @default(now())
+    updatedAt            DateTime            @default(now())
+    deletedAt            DateTime?
+}

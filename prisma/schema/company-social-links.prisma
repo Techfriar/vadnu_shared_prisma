@@ -1,0 +1,14 @@
+//Prisma model for company social media link 
+model CompanySocialLinks {
+    id        Int       @id @default(autoincrement())
+    company   Company?
+    website   String?
+    portfolio String?
+    linkedIn  String?
+    twitter   String?
+    facebook  String?
+    instagram String?
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

@@ -1,0 +1,9 @@
+// Total views for the job post connected to total views common table
+model JobTotalView {
+    id           Int      @id @default(autoincrement())
+    jobs         Job?     @relation(name: "JobsToJobsTotalView", fields: [jobId], references: [id])
+    jobId        Int?
+    viewedById   Int?
+    viewedByType String?
+    viewedAt     DateTime @default(now())
+}

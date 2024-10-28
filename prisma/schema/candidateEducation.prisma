@@ -1,0 +1,16 @@
+//Prisma model for Candidate  Education
+model CandidateEducation {
+    id            Int       @id @default(autoincrement())
+    candidateId   Int
+    candidate     Candidate @relation(name: "CandidateToEducations", fields: [candidateId], references: [id], onDelete: Cascade)
+    qualification String?
+    fieldOfStudy  String?
+    location      String?
+    cgpa          Float?
+    startDate     DateTime?
+    endDate       DateTime?
+    isGoing       Boolean?
+    createdAt     DateTime  @default(now())
+    updatedAt     DateTime?  @updatedAt
+    deletedAt     DateTime?
+}

@@ -1,0 +1,15 @@
+//Prisma model for CandidateTransactions 
+model CandidateTransactions {
+    id             Int       @id @default(autoincrement())
+    transactionId  String?   @unique
+    accountHolder  String?
+    candidateId    Int
+    candidate      Candidate @relation(name: "CandidateTransactions", fields: [candidateId], references: [id])
+    amount         Float
+    dateOfModified DateTime  @default(now())
+    invoiceId      Int
+    invoice        Invoice   @relation(name: "CandidateInvoice",fields: [invoiceId], references: [id])
+    createdAt      DateTime  @default(now())
+    modifiedAt     DateTime  @default(now())
+    deletedAt      DateTime?
+}

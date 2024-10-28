@@ -1,0 +1,11 @@
+// Job keywords table 
+model JobKeywords {
+    id        Int       @id @default(autoincrement())
+    job       Job?      @relation(name: "KeywordsToJobKeywords", fields: [jobId], references: [id])
+    jobId     Int?
+    keyword   Keyword?  @relation(name: "KeywordToKeyword", fields: [keywordId], references: [id])
+    keywordId Int?
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

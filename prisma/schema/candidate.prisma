@@ -1,0 +1,47 @@
+//Prisma model for Candidate 
+
+model Candidate {
+    id                        Int                              @id @default(autoincrement())
+    fullName                  String
+    email                     String                           @unique
+    phoneNumber               String?
+    profilePicture            String?
+    countryCode               String?
+    dateOfBirth               String?
+    referralCode              String?
+    isJobReady                Boolean?
+    location                  String?
+    highlight                 String?
+    initiative                String?
+    aboutMeTitle              String?
+    aboutMeDescription        String?
+    jobStatus                 String?
+    appointmentLetter         String?
+    currentCTC                String?
+    accountStatus             AccountStatus?                   @default(ACTIVE)
+    verification              Verification?                    @relation(name: "CandidateToVerification")
+    experience                CandidateWorkExperience[]        @relation(name: "CandidateToWorkExperience")
+    following                 CandidateFollowing[]             @relation(name: "CandidateToFollowings")
+    socialLinks               CandidateSocialLinks[]           @relation(name: "CandidateToSocialLinks")
+    preferredJobLocations     CandidatePreferredJobLocations[] @relation(name: "CandidateToPrefferedJobLocations")
+    resumes                   CandidateResumes[]               @relation(name: "CandidateToResumes")
+    certifications            CandidateCertifications[]        @relation(name: "CandidateToCertifications")
+    education                 CandidateEducation[]             @relation(name: "CandidateToEducations")
+    coreCareers               CandidateCoreCareers[]           @relation(name: "CandidateToCandidateCoreCareers")
+    jobRoles                  CandidateJobRoles[]              @relation(name: "CandidateToCandidateJobRoles")
+    skills                    CandidateSkills[]                @relation(name: "CandidateToCandidateSkills")
+    languages                 CandidateLanguages[]             @relation(name: "CandidateToCandidateLanguages")
+    ReportedCandidateAccounts ReportedCandidateAccounts[]      @relation(name: "ReportedCandidate")
+    ReportedCompanyAccounts   ReportedCompanyAccounts[]        @relation(name: "ReportedByCandidate")
+    CandidateTransactions     CandidateTransactions[]          @relation(name: "CandidateTransactions")
+    jobApplications           JobApplications[]
+    createdAt DateTime  @default(now())
+    updatedAt DateTime? @updatedAt
+    deletedAt DateTime?
+}
+
+enum AccountStatus {
+    ACTIVE
+    DEACTIVATED
+    DELETED
+}

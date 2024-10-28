@@ -1,0 +1,15 @@
+model LoginDetail {
+    id        Int       @id @default(autoincrement())
+    userId    Int
+    user      User      @relation("UserLoginDetails", fields: [userId], references: [id])
+    token     String
+    os        String?
+    location  String?
+    country   String?
+    browser   String?
+    uniqueId  String?
+    expireAt  DateTime?
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
+}

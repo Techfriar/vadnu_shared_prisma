@@ -1,0 +1,13 @@
+//Prisma model for Skills
+model Skills {
+  id              Int               @id @default(autoincrement())
+  name            String
+  slug            String?           @unique
+  candidateSkills CandidateSkills[] @relation(name: "SkillsToCandidateSkills")
+  companySkill    CompanySkills[]   @relation(name: "CompanySkills")
+  jobSkills       JobSkills[]       @relation(name: "SkillsToJobSkills")
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+}

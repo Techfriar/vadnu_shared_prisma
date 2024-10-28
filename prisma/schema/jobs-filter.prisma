@@ -1,0 +1,14 @@
+// Job category ,condition and job name table
+model JobsFilter {
+    id             Int              @id @default(autoincrement())
+    category       Category?        @relation("FilterCategory", fields: [categoryId], references: [id])
+    categoryId     Int?
+    condition      FilterCondition
+    job            Job?             @relation("JobFilter", fields: [jobId], references: [id])
+    jobId          Int?
+    savedJobFilter JobSavedFilter[] @relation("FilterGroupJobFilters")
+
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

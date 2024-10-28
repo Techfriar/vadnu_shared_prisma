@@ -1,0 +1,11 @@
+// candidate filter comparison 
+model CandidateFilterComparison {
+    id                     Int                   @id @default(autoincrement())
+    CandidateSavedFilter   CandidateSavedFilter? @relation(fields: [candidateSavedFilterId], references: [id])
+    candidateSavedFilterId Int?
+    filterDataPairNumber   Int
+    value                  ComparisonCondition
+    createdAt              DateTime              @default(now())
+    updatedAt              DateTime?             @updatedAt
+    deletedAt              DateTime?
+}

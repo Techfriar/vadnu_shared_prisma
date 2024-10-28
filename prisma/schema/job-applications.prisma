@@ -1,0 +1,17 @@
+// jobApplication table
+model JobApplications {
+    id                Int                   @id @default(autoincrement())
+    jobId             Int
+    Job               Job                   @relation(fields: [jobId], references: [id])
+    candidateId       Int
+    Candidate         Candidate             @relation(fields: [candidateId], references: [id])
+    applicationStatus JobApplicationStatus?
+    score             Float?
+    interviewDate     DateTime?
+    screeningMode     MethodOfApplication?
+    level             ExpertiseLevel?
+    year              ExpertiseYear?
+    createdAt         DateTime              @default(now())
+    updatedAt         DateTime?             @updatedAt
+    deletedAt         DateTime?
+}

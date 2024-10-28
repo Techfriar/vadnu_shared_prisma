@@ -1,0 +1,10 @@
+//Prisma model for Candidate Following
+model CandidateFollowing {
+    id          Int       @id @default(autoincrement())
+    candidateId Int
+    candidate   Candidate @relation(name: "CandidateToFollowings", fields: [candidateId], references: [id], onDelete: Cascade)
+    company     String?
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime?  @updatedAt
+    deletedAt   DateTime?
+}

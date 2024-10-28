@@ -1,0 +1,9 @@
+// category of the notifications 
+model NotificationSettingsCategory {
+    id                   Int                    @id @default(autoincrement())
+    name                 String                 @unique
+    notificationSettings NotificationSettings[] @relation("CategoryToSettings")
+    createdAt            DateTime               @default(now())
+    updatedAt            DateTime?              @updatedAt
+    deleteAt             DateTime?
+}

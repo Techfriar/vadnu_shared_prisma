@@ -1,0 +1,13 @@
+// Table for plans for boosting jobs,applications,etc.
+
+model BoostPlan {
+    id         Int          @id @default(autoincrement())
+    name       String       @unique
+    duration   Int
+    priceValue Float
+    features   String[]
+    boostedJob BoostedJob[] @relation(name: "BoostedPlanToBoostedJob")
+    createdAt  DateTime     @default(now())
+    updatedAt  DateTime     @default(now())
+    deletedAt  DateTime?
+}

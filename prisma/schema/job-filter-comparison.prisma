@@ -1,0 +1,11 @@
+// Job filter comparison with pair number and condition
+
+model JobFilterComparison {
+    id                   Int                 @id @default(autoincrement())
+    filterDataPairNumber Int
+    value                ComparisonCondition
+    savedJobFilter       JobSavedFilter[]
+    createdAt            DateTime            @default(now())
+    updatedAt            DateTime            @default(now())
+    deletedAt            DateTime?
+}

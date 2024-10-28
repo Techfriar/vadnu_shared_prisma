@@ -1,0 +1,11 @@
+// Job location table connected to location common table
+model JobLocation {
+    id         Int       @id @default(autoincrement())
+    job        Job       @relation(name: "JobsToJobsLocation", fields: [jobId], references: [id])
+    jobId      Int
+    location   Location? @relation(name: "LocationTosLocation", fields: [locationId], references: [id])
+    locationId Int?
+    createdAt  DateTime  @default(now())
+    updatedAt  DateTime  @default(now())
+    deletedAt  DateTime?
+}

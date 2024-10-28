@@ -1,0 +1,14 @@
+//prisma model for message attachment
+model messageAttachment {
+    id         Int      @id @default(autoincrement())
+    userId     Int
+    chatroomId Int
+    messageId  Int
+    fileUrl    String
+    fileType   String
+    joinedAt   DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    deletedAt  DateTime
+    message    Message  @relation(fields: [messageId], references: [id])
+    user       User     @relation(fields: [userId], references: [id])
+}

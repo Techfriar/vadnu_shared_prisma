@@ -1,0 +1,13 @@
+model CompanyUser {
+    id        Int       @id @default(autoincrement())
+    email     String    @unique
+    fullName  String?
+    password  String
+    companyId Int
+    company   Company   @relation(name: "companyUserToCompany", fields: [companyId], references: [id])
+    roleId    Int?
+    role      Role?     @relation(name: "companyUserToRole", fields: [roleId], references: [id])
+    createdAt DateTime  @default(now())
+    updatedAt DateTime? @updatedAt
+    deletedAt DateTime?
+}

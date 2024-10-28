@@ -1,0 +1,9 @@
+//Prisma model for country
+model Country {
+    id        Int       @id @default(autoincrement())
+    name      String
+    code      String    @unique // Add this line to enforce uniqueness
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
+}

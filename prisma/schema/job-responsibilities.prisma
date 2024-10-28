@@ -1,0 +1,11 @@
+// Responsibilities of the job connected to responsibilities common table
+model JobResponsibilites {
+    id                 Int               @id @default(autoincrement())
+    responsibilities   Responsibilities? @relation(name: "JobsResponsibilitiesToResponsibilities", fields: [responsibilitiesId], references: [id])
+    responsibilitiesId Int?
+    job                Job?              @relation(name: "JobsToJobsResponsibilities", fields: [jobId], references: [id])
+    jobId              Int?
+    createdAt          DateTime          @default(now())
+    updatedAt          DateTime          @default(now())
+    deletedAt          DateTime?
+}

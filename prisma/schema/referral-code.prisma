@@ -1,0 +1,16 @@
+// The ReferralCode model represents a referral code entity 
+model ReferralCode {
+    id           Int                 @id @default(autoincrement())
+    name         String
+    description  String?
+    status       ReferralCodeStatus? @default(ACTIVE)
+    createdAt    DateTime            @default(now())
+    dateModified DateTime?           @updatedAt
+    deletedAt    DateTime?
+}
+
+// Enum to define the status of the referral code.
+enum ReferralCodeStatus {
+    ACTIVE
+    DEACTIVATED
+}

@@ -1,0 +1,11 @@
+// application filter data  for saved filter
+model ApplicationFilterData {
+    id                     Int                         @id @default(autoincrement())
+    selectedCategory       ApplicationSelectedCategory
+    condition              ApplicationCategoryConditon
+    categoryContent        ApplicationCategoryContent
+    applicationSavedFilter ApplicationSavedFilter[]
+    createdAt              DateTime                    @default(now())
+    updatedAt              DateTime?                   @updatedAt
+    deletedAt              DateTime?
+}

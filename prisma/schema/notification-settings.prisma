@@ -1,0 +1,16 @@
+// notification settings table for each user
+model NotificationSettings {
+    id                             Int                          @id @default(autoincrement())
+    title                          String
+    subTitle                       String
+    notificationSettingsCategoryId Int
+    notificationSettingsCategory   NotificationSettingsCategory @relation(name: "CategoryToSettings", fields: [notificationSettingsCategoryId], references: [id])
+    isPush                         Boolean                      @default(false)
+    isEmail                        Boolean                      @default(false)
+    isSMS                          Boolean                      @default(false)
+    user                           User                         @relation(fields: [userId], references: [id])
+    userId                         Int
+    createdAt                      DateTime                     @default(now())
+    updatedAt                      DateTime?                    @updatedAt
+    deletedAt                      DateTime?
+}

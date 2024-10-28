@@ -1,0 +1,10 @@
+//Prisma model for Candidate Locations
+model CandidatePreferredJobLocations {
+    id          Int       @id @default(autoincrement())
+    candidateId Int
+    candidate   Candidate @relation(name: "CandidateToPrefferedJobLocations", fields: [candidateId], references: [id], onDelete: Cascade)
+    location    String?
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime? @updatedAt
+    deletedAt   DateTime?
+}

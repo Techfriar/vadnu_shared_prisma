@@ -1,0 +1,11 @@
+// Job requirement connected to common requirement table
+model JobRequirements {
+    id             Int           @id @default(autoincrement())
+    requirements   Requirements? @relation(name: "JobRequirementsToRequirements", fields: [requirementsId], references: [id])
+    requirementsId Int?
+    job            Job?          @relation(name: "JobsToJobsRequirements", fields: [jobId], references: [id])
+    jobId          Int?
+    createdAt      DateTime      @default(now())
+    updatedAt      DateTime      @default(now())
+    deletedAt      DateTime?
+}

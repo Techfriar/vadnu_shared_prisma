@@ -1,0 +1,12 @@
+// enum for status of application for applied jobs
+enum JobApplicationStatus {
+    INTERVIEW
+    PENDING_ACTION
+    UNDER_REVIEW
+    SHORT_LISTED
+    OFFERED
+    HIRED
+    TURNED_DOWN
+    ON_HOLD
+    INVITED_TO_APPLY
+}

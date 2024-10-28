@@ -1,0 +1,15 @@
+//Prisma model for CompanyTransactions 
+model CompanyTransactions {
+    id             Int       @id @default(autoincrement())
+    transactionId  String?   @unique
+    accountHolder  String?
+    companyId      Int
+    company        Company   @relation(name: "CompanyTransactions", fields: [companyId], references: [id])
+    amount         Float?
+    dateOfModified DateTime? @default(now())
+    invoiceId      Int
+    invoice        Invoice   @relation(name: "CompanyInvoice",fields: [invoiceId], references: [id])
+    createdAt      DateTime  @default(now())
+    modifiedAt     DateTime  @default(now())
+    deletedAt      DateTime?
+}

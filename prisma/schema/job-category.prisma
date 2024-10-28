@@ -1,0 +1,12 @@
+// Job category table to add job categories
+model JobCategory {
+    id         Int       @id @default(autoincrement())
+    job        Job       @relation(name: "JobsToJobsCategory", fields: [jobId], references: [id])
+    jobId      Int
+    category   Category? @relation(name: "JobCategoryToCategory", fields: [categoryId], references: [id])
+    categoryId Int
+
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @default(now())
+    deletedAt DateTime?
+}

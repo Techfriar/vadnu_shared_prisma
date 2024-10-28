@@ -1,0 +1,11 @@
+model ResetPasswordDetail {
+    id         Int       @id @default(autoincrement())
+    userId     Int
+    user       User      @relation("UserResetPasswordDetails", fields: [userId], references: [id])
+    resetToken String
+    otp        String
+    expireAt   DateTime?
+    createdAt  DateTime  @default(now())
+    updatedAt  DateTime  @updatedAt
+    deletedAt  DateTime?
+}

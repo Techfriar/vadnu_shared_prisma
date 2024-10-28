@@ -1,0 +1,12 @@
+// candidate saved filters
+model CandidateSavedFilter {
+    id              Int                         @id @default(autoincrement())
+    name            String
+    user            User                        @relation(fields: [userId], references: [id])
+    userId          Int
+    CandidateFilter CandidateFilterData[]
+    Comparison      CandidateFilterComparison[]
+    createdAt       DateTime                    @default(now())
+    updatedAt       DateTime?                   @updatedAt
+    deletedAt       DateTime?
+}

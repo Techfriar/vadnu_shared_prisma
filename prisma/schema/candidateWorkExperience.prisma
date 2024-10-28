@@ -1,0 +1,13 @@
+//Prisma model for Candidate Experience
+model CandidateWorkExperience {
+    id            Int       @id @default(autoincrement())
+    candidateId   Int
+    candidate     Candidate @relation(name: "CandidateToWorkExperience", fields: [candidateId], references: [id])
+    company       String?
+    joiningDate   DateTime?
+    relievingDate DateTime?
+    description   String?
+    createdAt     DateTime  @default(now())
+    updatedAt     DateTime?  @updatedAt
+    deletedAt     DateTime?
+}

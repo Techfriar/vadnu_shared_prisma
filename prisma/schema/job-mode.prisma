@@ -1,0 +1,6 @@
+// Mode of the job
+enum JobMode {
+    HYBRID
+    ON_SITE
+    REMOTE
+}

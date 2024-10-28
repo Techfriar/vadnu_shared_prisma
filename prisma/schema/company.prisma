@@ -1,0 +1,45 @@
+//prisma model for company 
+model Company {
+    id                        Int                         @id @default(autoincrement())
+    name                      String
+    tagline                   String?
+    logo                      String?
+    categoryId                Int?
+    category                  CompanyCategory?            @relation(fields: [categoryId], references: [id])
+    socialmediaId             Int?                        @unique
+    socialmedia               CompanySocialLinks?         @relation(fields: [socialmediaId], references: [id])
+    skills                    CompanySkills[]             @relation(name: "CompanySkills")
+    companyCultureDescription String?
+    companyAboutDescription   String?
+    companyGrowthDescription  String?
+    email                     String
+    contactNumber             String?
+    status                    String
+    country                   String?
+    noOfEmployees             String?
+    isShowSalaryChart         Boolean?
+    isShowGrowthInsights      Boolean?
+    companyLocations          CompanyLocation[]
+    news                      CompanyNews[]
+    website                   String?
+    linkedIn                  String?
+    twitter                   String?
+    facebook                  String?
+    instagram                 String?
+    companyUsers              CompanyUser[]               @relation(name: "companyUserToCompany")
+    invites                   Invitation[]
+    verification              Verification?               @relation(name: "CompanyToVerification")
+    accountStatus             AccountStatus               @default(ACTIVE)
+    identificationNumber      Int?
+    gstNumber                 Int?
+    businessAddress           String?
+    annualReport              String?
+    createdAt                 DateTime                    @default(now())
+    updatedAt                 DateTime                    @updatedAt
+    deletedAt                 DateTime?
+    CompanyValues             CompanyValue[]
+    ReportedCandidateAccounts ReportedCandidateAccounts[] @relation(name: "ReportedByCompany")
+    ReportedCompanyAccounts   ReportedCompanyAccounts[]   @relation(name: "ReportedCompany")
+    Job                       Job[]
+    CompanyTransactions       CompanyTransactions[]       @relation(name: "CompanyTransactions")
+}

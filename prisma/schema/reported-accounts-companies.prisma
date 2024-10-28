@@ -1,0 +1,12 @@
+model ReportedCompanyAccounts {
+  id                  Int               @id @default(autoincrement())
+  companyId           Int
+  company             Company           @relation(name: "ReportedCompany",fields: [companyId], references: [id])
+  reportedCandidateID Int
+  reportedBy          Candidate         @relation(name: "ReportedByCandidate",fields: [reportedCandidateID], references: [id])
+  reason              String
+  reportedDate        DateTime          @default(now())
+  suspended           Boolean           @default(false)
+  issuedWarning       Boolean           @default(false)
+  history             ReportedHistory[] @relation(name: "CompanyHistory")
+}

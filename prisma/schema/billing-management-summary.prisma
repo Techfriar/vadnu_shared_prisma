@@ -1,0 +1,14 @@
+//Prisma model for InvoiceSummary 
+model InvoiceSummary {
+    id            Int      @id @default(autoincrement())
+    description   String?
+    dateOfIssue   String?
+    modeOfPayment String?
+    cardNumber    String?
+    accountHolder String?
+    cost          Float?
+    tax           Float?
+
+
+    Invoice Invoice[] @relation(name: "InvoiceSummary")
+}

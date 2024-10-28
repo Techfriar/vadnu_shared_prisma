@@ -1,0 +1,10 @@
+model Setting {
+    id                      Int       @id @default(autoincrement())
+    userId                  Int
+    user                    User      @relation("UserSettings", fields: [userId], references: [id])
+    unrecognizedLoginAlert  Boolean   @default(false)
+    twoFactorAuthentication Boolean   @default(false)
+    createdAt               DateTime  @default(now())
+    updatedAt               DateTime  @updatedAt
+    deletedAt               DateTime?
+}

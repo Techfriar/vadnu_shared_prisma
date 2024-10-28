@@ -1,0 +1,6 @@
+// Job post status
+enum JobStatus {
+    ACTIVE
+    CLOSED
+    INACTIVE
+}

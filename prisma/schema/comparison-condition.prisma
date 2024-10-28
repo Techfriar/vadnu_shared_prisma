@@ -1,0 +1,5 @@
+// Condition enum for filter box between two categories
+enum ComparisonCondition {
+    AND
+    OR
+}
