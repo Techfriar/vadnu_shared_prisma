@@ -1,6 +1,10 @@
 # vadnu_shared_prisma
 
 
+yarn add prisma @prisma/client
+npx prisma generate
+
+
 In each repository, add the shared library as a dependency. If it’s a local library, use a relative path:
 yarn add file:../vadnu-shared-prisma
 
