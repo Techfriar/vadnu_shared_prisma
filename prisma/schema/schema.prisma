@@ -12,5 +12,5 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://user:password@postgres:5432/vadnu?schema=public"
+  url      = "postgresql://user:password@localhost:5432/vadnu?schema=public"
 }
