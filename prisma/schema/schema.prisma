@@ -12,5 +12,5 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://user:password@host.docker.internal:5432/vadnu?schema=public"
+  url      = env("DATABASE_URL")
 }
